@@ -7,7 +7,7 @@ At this time, the initial setup of webhooks is not available through a self-serv
 Once you have been given access to our webhook infrastructure, your organization will be issued a `client_token` and `client_secret` which you'll be able to use to verify requests you receive from us.
 
 ## Event Firehose
-To begin receiving data, you will need to subscribe to our event firehose. This mechanism sends TCP HTTPS POST requests to the URL of your choosing.
+To begin receiving data, you will need to subscribe to our event firehose. This mechanism sends TCP POST requests to the HTTPS URL of your choosing.
 
 Events from the firehose will be sent to you as JSON in the following format:
 
