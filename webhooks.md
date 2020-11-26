@@ -17,6 +17,7 @@ Events from the firehose will be sent to you as JSON in the following format:
 **Body:**
 ```json
 {
+    "id": "uuid",
     "event": "ticket_created",
     "broadcasted_at": "RFC3339 Date",
     "data": {
