@@ -1,5 +1,5 @@
 # Aisle Webhooks
-The Aisle API provides a way for merchants to integrate and interface with their own data through HTTP webhooks.
+The Aisle API provides a way for merchants to create event based web applications through our webhook mechanism.
 
 ## Getting started
 At this time, the initial setup of webhooks is not available through a self-serve merchanism and requires contacting our engineering team directly at api@aisle.city.
