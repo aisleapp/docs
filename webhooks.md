@@ -7,7 +7,7 @@ At this time, the initial setup of webhooks is not available through a self-serv
 Once you have been given access to our webhook infrastructure, your organization will be issued a `client_token` and `client_secret` which you'll be able to use to verify requests you receive from us.
 
 ## Event firehose
-To begin receiving data, you will need to subscribe to our event firehose. This mechanism sends HTTPS POST requests to the URL of your choosing.
+To begin receiving data, you will need to subscribe to our event firehose. This mechanism sends TCP HTTPS POST requests to the URL of your choosing.
 
 An sample event from the firehose will be sent to you as JSON in the following format:
 
@@ -51,3 +51,6 @@ Follow these steps to verify a firehose event:
 * Using the HMAC comparison function of the language you're using, compare it against the value of `x-aisle-webhook-signature`.
 
 If the comparison succeeds, then the request is legitimate. Not only is the signature valid, but you can rest assured that the body of the request has not been tampered with.
+
+## Timeouts
+We currently have a connection timeout of 500ms and a response timeout of 1000ms. We will attempt to deliver your event a maximum of 2 times.
