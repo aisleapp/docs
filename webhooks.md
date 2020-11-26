@@ -11,6 +11,10 @@ To begin receiving data, you will need to subscribe to our event firehose. This 
 
 An sample event from the firehose will be sent to you as JSON in the following format:
 
+**Headers:**
+`x-aisle-webhook-signature: {hmac}`
+
+**Body:**
 ```json
 {
     "event": "ticket_created",
@@ -38,3 +42,12 @@ We currently broadcast the following events:
 * `ticket_removed`: Customer has been removed by an employee of your store.
 * `ticket_called`: It's the customer's turn and they've been called.
 * `ticket_served`: The customer has entered the store.
+
+## Verifying requests
+All requests you receive from us will contain a header called `x-aisle-webhook-signature`. You will use this header, along with the request body, to verify the authenticity of our requests. We use the HMAC mechanism for signing all firehose events.
+
+Follow these steps to verify a firehose event:
+* Create an HMAC using the **raw and untampered** json in the body as the data, and use your `client_secret` as the signature.
+* Using the HMAC comparison function of the language you're using, compare it against the value of `x-aisle-webhook-signature`.
+
+If the comparison succeeds, then the request is legitimate. Not only is the signature valid, but you can rest assured that the body of the request has not been tampered with.
