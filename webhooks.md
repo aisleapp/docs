@@ -15,7 +15,7 @@ An sample event from the firehose will be sent to you as JSON in the following f
 {
     "event": "ticket_created",
     "broadcasted_at": "RFC3339 Date",
-    "body": {
+    "data": {
       "id": "uuid",
       "store_id": "uuid",
       "user_id": "uuid",
