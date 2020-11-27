@@ -1,10 +1,10 @@
 # Aisle Webhooks
 The Aisle API provides a way for merchants to create event based web applications through our webhook mechanism.
 
-## Getting started
+## Getting Started
 At this time, the initial setup of webhooks is not available through a self-serve merchanism and requires contacting our engineering team directly at api@aisle.city.
 
-Once you have been given access to our webhook infrastructure, your organization will be issued a `client_token` and `client_secret` which you'll be able to use to verify requests you receive from us.
+Once you have been given access to our webhook infrastructure, your organization will be issued a `client_token` and `client_secret`, for production and for our sandbox environment, which you'll be able to use to verify requests you receive from us.
 
 ## Event Firehose
 To begin receiving data, you will need to subscribe to our event firehose. This mechanism sends TCP POST requests to the HTTPS URL of your choosing.
@@ -36,7 +36,7 @@ Events from the firehose will be sent to you as JSON in the following format:
 }
 ```
 
-### Events available
+### Events Available
 We currently broadcast the following events:
 * `ticket_created`: Customer has been added to your waitlist.
 * `ticket_cancelled`: Customer has cancelled their own place in line.
@@ -44,7 +44,7 @@ We currently broadcast the following events:
 * `ticket_called`: It's the customer's turn and they've been called.
 * `ticket_served`: The customer has entered the store.
 
-## Verifying requests
+## Verifying Requests
 All requests you receive from us will contain a header called `x-aisle-webhook-signature`. You will use this header, along with the request body, to verify the authenticity of our requests. We use the HMAC mechanism for signing all firehose events.
 
 Follow these steps to verify a firehose event:
